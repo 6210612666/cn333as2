@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mynotes.R
 import com.example.mynotes.databinding.MainFragmentBinding
-
 
 // layout: main_activity.xml
 // Binding Class: MainActivityBinding
@@ -37,7 +37,6 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         viewModel = ViewModelProvider(requireActivity(),
             MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(requireActivity())))
             .get(MainViewModel::class.java)

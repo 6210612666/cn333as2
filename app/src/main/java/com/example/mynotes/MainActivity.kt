@@ -5,14 +5,25 @@ import android.os.Bundle
 import android.text.InputType
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.example.mynotes.databinding.MainActivityBinding
+import com.example.mynotes.models.TaskList
 import com.example.mynotes.ui.main.MainFragment
+import com.example.mynotes.ui.main.MainViewModel
+import com.example.mynotes.ui.main.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this,
+            MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(this))
+        )
+            .get(MainViewModel::class.java)
+
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -40,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         builder.setPositiveButton(positiveButtonTitle) { dialog, _ ->
             dialog.dismiss()
+            viewModel.saveList(TaskList(listTitleEditText.text.toString()))
         }
 
         builder.create().show()
