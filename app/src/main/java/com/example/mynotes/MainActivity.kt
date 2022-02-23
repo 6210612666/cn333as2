@@ -12,14 +12,17 @@ import com.example.mynotes.models.TaskList
 import com.example.mynotes.ui.main.MainFragment
 import com.example.mynotes.ui.main.MainViewModel
 import com.example.mynotes.ui.main.MainViewModelFactory
+import android.content.Intent
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), MainFragment.MainFragmentInteractionListener {
     private lateinit var binding: MainActivityBinding
     private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this,
+        viewModel = ViewModelProvider(
+            this,
             MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(this))
         )
             .get(MainViewModel::class.java)
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, MainFragment.newInstance(this))
                 .commitNow()
         }
 
@@ -51,9 +54,25 @@ class MainActivity : AppCompatActivity() {
 
         builder.setPositiveButton(positiveButtonTitle) { dialog, _ ->
             dialog.dismiss()
-            viewModel.saveList(TaskList(listTitleEditText.text.toString()))
+            val taskList = TaskList(listTitleEditText.text.toString())
+            viewModel.saveList(taskList)
+            showListDetail(taskList)
         }
 
         builder.create().show()
+    }
+
+    private fun showListDetail(list: TaskList) {
+        val listDetailIntent = Intent(this, NoteDetailActivity::class.java)
+        listDetailIntent.putExtra(INTENT_LIST_KEY, list)
+        startActivity(listDetailIntent)
+    }
+
+    companion object {
+        const val INTENT_LIST_KEY = "list"
+    }
+
+    override fun listItemTapped(list: TaskList) {
+        showListDetail(list)
     }
 }
