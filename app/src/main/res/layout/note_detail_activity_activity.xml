@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editTextDetail"
+            android:id="@+id/editTextTextMultiLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="20sp"

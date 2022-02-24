@@ -35,7 +35,7 @@ class NoteDetailActivity : AppCompatActivity() {
         title = viewModel.list.name
 
         val sharedPreferences : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val editNoteText: EditText = findViewById(R.id.editTextDetail)
+        val editNoteText: EditText = findViewById(R.id.editTextTextMultiLine)
         val contented = sharedPreferences.getString(title as String,"Not found")
         if (contented != null) {
             Log.d(ContentValues.TAG, contented)
@@ -53,7 +53,7 @@ class NoteDetailActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        val editNoteText: EditText = findViewById(R.id.editTextDetail)
+        val editNoteText: EditText = findViewById(R.id.editTextTextMultiLine)
 
         viewModel.saveList(TaskList(viewModel.list.name,editNoteText.text.toString()))
 
