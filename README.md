@@ -1,9 +1,9 @@
 # Assignment 2
 
-Name: Kodchamol Aukkarabenjasiri
-ID: 6210612666
+>Name: Kodchamol Aukkarabenjasiri
+>ID: 6210612666
 
-> MyNotes Application
+MyNotes Application
 
 ## App Functionalities
 1. Create a new note
@@ -15,4 +15,4 @@ ID: 6210612666
 ## Extra Functionalities
 1. Delete a note on click note's name
 
-link video demo: [Video demo](https://youtu.be/8bbGI219kR8)
+> link video demo: [Video demo](https://youtu.be/8bbGI219kR8)
