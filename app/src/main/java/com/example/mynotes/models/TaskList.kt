@@ -5,16 +5,16 @@ package com.example.mynotes.models
 import android.os.Parcel
 import android.os.Parcelable
 
-class TaskList(val name: String, val tasks: ArrayList<String> = ArrayList()) : Parcelable {
+class TaskList(val name: String, val tasks: String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
-        parcel.createStringArrayList()!!
+        parcel.readString()!!
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
-        parcel.writeStringList(tasks)
+        parcel.writeString(tasks)
     }
 
     override fun describeContents() = 0

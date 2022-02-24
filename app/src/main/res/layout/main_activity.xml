@@ -7,13 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/task_list_add_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom|right"
-    android:layout_marginRight="8dp"
-    android:layout_marginBottom="8dp"
-    android:clickable="true"
-    app:srcCompat="@android:drawable/ic_menu_add" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_act_fragment_container"
+        android:name="com.example.mynotes.ui.main.MainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/list_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </FrameLayout>
