@@ -69,7 +69,6 @@ class MainViewModel(val sharedPreferences: SharedPreferences) : ViewModel() {
         val editor = sharedPreferences.edit()
         editor.remove(list.name)
         editor.apply()
-//        refreshLists()
     }
 
     fun findList(key: String): Boolean{

@@ -41,7 +41,6 @@ class MainFragment() :
         savedInstanceState: Bundle?
     ): View {
         binding = MainFragmentBinding.inflate(inflater, container, false)
-        // id: lists_recyclerview => listsRecyclerview
         binding.listsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root

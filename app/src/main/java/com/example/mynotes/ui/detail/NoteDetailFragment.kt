@@ -37,7 +37,7 @@ class NoteDetailFragment : Fragment() {
         note?.let{
             viewModel.list = note
             requireActivity().title = note.name
-            val text: EditText = requireActivity().findViewById(R.id.editTextTextMultiLine)
+            val text: EditText = requireActivity().findViewById(R.id.editTextDetail)
             val sharedPreferences = viewModel.sharedPreferences
             val contented = sharedPreferences.getString(viewModel.list.name,"Not found")
             Log.d(ContentValues.TAG, note.tasks)

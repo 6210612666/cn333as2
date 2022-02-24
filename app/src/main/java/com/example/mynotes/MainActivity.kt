@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity(), MainFragment.MainFragmentInteractionLi
 //
         } else {
             title = resources.getString(R.string.app_name)
-            val editNoteText: EditText = findViewById(R.id.editTextTextMultiLine)
+            val editNoteText: EditText = findViewById(R.id.editTextDetail)
             viewModel.saveList(TaskList(viewModel.list.name,editNoteText.text.toString()))
             editNoteText.setText("")
             supportFragmentManager.commit {
