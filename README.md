@@ -1,9 +1,10 @@
-# Assignment 2
+# MyNotes Application
+#### Assignment 2
 
 >Name: Kodchamol Aukkarabenjasiri
 >ID: 6210612666
 
-MyNotes Application
+
 
 ## App Functionalities
 1. Create a new note
